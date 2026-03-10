@@ -1,0 +1,11 @@
+# Splunk-specific
+*.log
+*.csv
+*.xlsx
+*.json
+__pycache__/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
