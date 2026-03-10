@@ -1,0 +1,30 @@
+# 1.Forensic Process Access Analysis
+# Extracts Event IDs and analyzes relationships between source and target processes
+index=threat_lab_sysmon 
+| rex field=_raw "EventId: (?<event_id>\d+)" 
+| rename SourceImage as "Source Image", TargetImage as "Target Image", GrantedAccess as "Access Rights" 
+| stats count by "Source Image", "Target Image", "Access Rights" 
+| sort - count 
+| head 20
+
+# 2.Top 10 Active Source Images
+# Identifies the most frequent process initiators
+index=threat_lab_sysmon 
+| top limit=10 SourceImage
+
+# 3.Event Code Distribution
+# Breakdown of Sysmon events for pie chart visualization
+index=threat_lab_sysmon 
+| stats count by EventCode 
+| sort -count
+
+# 4.Incident Timeline
+# Visualizes event frequency over time
+index=threat_lab_sysmon 
+| timechart count by EventCode
+
+# 5.Registry Modification Audit
+# Tracks changes to critical system registry keys (EventCode 13)
+index=threat_lab_sysmon EventCode=13 
+| stats count by TargetObject, Image 
+| sort -count
