@@ -25,3 +25,11 @@ The primary goal was to build interactive dashboards that translate raw, unstruc
    Navigate to **Search & Reporting** and use the provided SPL queries to hunt for threats.
 4. Build Dashboards:
    Create new dashboard panels and paste the SPL queries to visualize event distributions and forensic data.
+   
+## Dashboards
+- Splunk_main_dashboard
+  ![Splunk_main_dashboard](images/splunk_main_dashboard.jpg)
+- Splunk_process_forensics
+  ![Splunk_process_forensics](images/splunk_process_forensics.jpg)
+- Splunk_event_distribution
+  ![Splunk_event_distribution](images/splunk_event_distribution.jpg)
