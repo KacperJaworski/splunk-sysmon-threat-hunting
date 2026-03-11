@@ -1,15 +1,14 @@
 # splunk-sysmon-threat-hunting
 
 ## Overview
-This project demonstrates a practical implementation of a security monitoring and threat hunting pipeline using Splunk Enterprise.
-The lab focuses on analyzing high-fidelity endpoint telemetry provided by Windows Sysmon and the Aurora Incident Response Agent. 
-The goal was to build interactive dashboards that translate raw, unstructured event data into actionable security insights, focusing on process forensics and registry integrity.
+This project demonstrates a practical implementation of a security monitoring and threat hunting pipeline using Splunk Enterprise. 
+The lab focuses on analyzing high-fidelity endpoint telemetry provided by Windows Sysmon (specifically Event ID 10 - Process Access) and the Aurora Incident Response Agent. 
+The primary goal was to build interactive dashboards that translate raw, unstructured XML event data into actionable security insights, focusing on process forensics, privilege escalation attempts, and credential dumping detection (e.g., unauthorized access to `lsass.exe`).
 
 ## Features
-- **Automated Log Parsing:** Used rex to extract custom fields from raw data where standard CIM mapping was unavailable.
-- **Process Access Auditing:** Monitoring of GrantedAccess rights and CallTrace to detect potential credential dumping (e.g., LSASS access).
-- **Behavioral Analysis:** Dashboards tracking the Top 10 source images and suspicious process hierarchies.
-- **Event Distribution:** Real-time breakdown of Sysmon EventIDs (1, 7, 11, 12, 13) to monitor system health and security posture.
+- **Custom Log Parsing:** Used SPL `rex` commands to manually extract critical fields (`SourceImage`, `TargetImage`, `GrantedAccess`) from raw, unstructured XML event logs.
+- **Data Correlation:** Developed queries using `stats`, `sort`, and data aggregation techniques to link source processes with targeted images.
+- **Dashboarding:** Built a dashboard panel (Bar Charts and Tables) to visualize the top active source processes and their access levels.
 
 ## Tech Stack
 - Splunk Enterprise
