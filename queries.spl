@@ -1,10 +1,11 @@
 # 1.Forensic Process Access Analysis
-# Extracts Event IDs and analyzes relationships between source and target processes
-index=threat_lab_sysmon 
-| rex field=_raw "EventId: (?<event_id>\d+)" 
-| rename SourceImage as "Source Image", TargetImage as "Target Image", GrantedAccess as "Access Rights" 
-| stats count by "Source Image", "Target Image", "Access Rights" 
-| sort - count 
+# Extracts Event IDs and analyzes relationships between source and target processes from XML logs
+index=threat_lab_sysmon EventCode=10
+| rex field=_raw "<Data Name=\"SourceImage\">(?<source_image>[^<]+)</Data>"
+| rex field=_raw "<Data Name=\"TargetImage\">(?<target_image>[^<]+)</Data>"
+| rex field=_raw "<Data Name=\"GrantedAccess\">(?<granted_access>[^<]+)</Data>"
+| stats count by source_image, target_image, granted_access
+| sort - count
 | head 20
 
 # 2.Top 10 Active Source Images
