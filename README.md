@@ -1,9 +1,7 @@
 # splunk-sysmon-threat-hunting
 
 ## Overview
-This project demonstrates a practical implementation of a security monitoring and threat hunting pipeline using Splunk Enterprise. 
-The lab focuses on analyzing high-fidelity endpoint telemetry provided by Windows Sysmon (specifically Event ID 10 - Process Access) and the Aurora Incident Response Agent. 
-The primary goal was to build interactive dashboards that translate raw, unstructured XML event data into actionable security insights, focusing on process forensics, privilege escalation attempts, and credential dumping detection (e.g., unauthorized access to `lsass.exe`).
+This project demonstrates a practical implementation of a security monitoring and threat hunting pipeline using Splunk Enterprise. The lab focuses on analyzing high-fidelity endpoint telemetry provided by Windows Sysmon (specifically Event ID 10 - Process Access) and the Aurora Incident Response Agent. The primary goal was to build interactive dashboards that translate raw, unstructured XML event data into actionable security insights, focusing on process forensics, privilege escalation attempts, and credential dumping detection (e.g., unauthorized access to `lsass.exe`).
 
 ## Features
 - **Custom Log Parsing:** Used SPL `rex` commands to manually extract critical fields (`SourceImage`, `TargetImage`, `GrantedAccess`) from raw, unstructured XML event logs.
