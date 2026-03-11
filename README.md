@@ -28,8 +28,11 @@ The primary goal was to build interactive dashboards that translate raw, unstruc
    
 ## Dashboards
 - Splunk_main_dashboard
+
   ![Splunk_main_dashboard](images/splunk_main_dashboard.jpg)
 - Splunk_process_forensics
+
   ![Splunk_process_forensics](images/splunk_process_forensics.jpg)
 - Splunk_event_distribution
+
   ![Splunk_event_distribution](images/splunk_event_distribution.jpg)
