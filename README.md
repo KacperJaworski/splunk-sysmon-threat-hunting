@@ -1,5 +1,11 @@
 # splunk-sysmon-threat-hunting
 
+![Splunk](https://img.shields.io/badge/splunk-%23000000.svg?style=for-the-badge&logo=splunk&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![CyberSecurity](https://img.shields.io/badge/CyberSecurity-000000?style=for-the-badge&logo=hackthebox&logoColor=white)
+![XML](https://img.shields.io/badge/xml-%23FFFFFF.svg?style=for-the-badge&logo=xml&logoColor=151515)
+![Regex](https://img.shields.io/badge/RegEx-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)
+
 ## Overview
 This project demonstrates a practical implementation of a security monitoring and threat hunting pipeline using Splunk Enterprise. The lab focuses on analyzing high-fidelity endpoint telemetry provided by Windows Sysmon (specifically Event ID 10 - Process Access) and the Aurora Incident Response Agent. The primary goal was to build interactive dashboards that translate raw, unstructured XML event data into actionable security insights, focusing on process forensics, privilege escalation attempts, and credential dumping detection (e.g., unauthorized access to `lsass.exe`).
 
